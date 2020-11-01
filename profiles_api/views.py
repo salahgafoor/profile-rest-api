@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework.authentication import TokenAuthentication
+from rest_framework import filters
 from profiles_api import serializer, models, permissions
 
 
@@ -93,5 +94,7 @@ class UserProfileViewSet(viewsets.ModelViewSet):
     queryset = models.UserProfile.objects.all()
     authentication_classes = (TokenAuthentication,)
     permission_classes = (permissions.UpdateOwnProfile,) #trigger has_object_permission function inside permissions.py file
+    filter_backends = (filters.SearchFilter,) #always add comma at end to make it to tuple, otherwise error
+    search_fields = ('name','email',)
 
 
