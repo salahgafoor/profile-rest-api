@@ -14,12 +14,12 @@ class UserProfileManager(BaseUserManager):
         email = self.normalize_email(email)
         user = self.model(email=email,name=name)
 
-        user.set_passwd(password)
+        user.set_password(password)
         user.save(using=self._db)
 
         return user
 
-    def create_super_user(self,email,name,password):
+    def create_superuser(self,email,name,password):
         """Create a new superuser with given details"""
         user = self.create_user(email,name,password)
         user.is_superuser =  True   #this is fetched from PermissionsMixin
