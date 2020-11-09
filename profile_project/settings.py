@@ -26,7 +26,7 @@ SECRET_KEY = '#*fcg8#r+8prxjkrf(&m43v8g(3xm!h9f-a2h7_q+u(s)j&qn_'
 DEBUG = bool(int(os.environ.get('DEBUG', 1))) #if debug setting does not exist, second argument '1' is selected
 
 ALLOWED_HOSTS = [
-    '*',
+    '3.12.56.73',
     #'ec2-3-12-56-73.us-east-2.compute.amazonaws.com',
     #'127.0.0.1'
 ]
